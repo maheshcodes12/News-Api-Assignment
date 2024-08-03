@@ -8,6 +8,10 @@ This project is developed as an assignment.
 
 ## Getting Started
 
+### Caution
+
+Make sure to update Api key in ./backend/env . Provided key can have it's daily limit exceeded already.
+
 ### Dependencies
 
 * Node.js

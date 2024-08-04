@@ -27,15 +27,15 @@ const Headlines = () => {
 	const status = useSelector((state) => state.headlines.status);
 	const error = useSelector((state) => state.headlines.error);
 
-	useEffect(() => {
-		size = Number(headlines?.length / resultsPerPage) || 20;
-		setPagination(size / resultsPerPage);
-	}, [headlines, resultsPerPage]);
-
 	const everything = useSelector((state) => state.everything.items);
 	const status2 = useSelector((state) => state.everything.status);
 	const error2 = useSelector((state) => state.everything.error);
 
+	useEffect(() => {
+		size = Number(headlines?.length / resultsPerPage) || 20;
+		setPagination(size / resultsPerPage);
+		console.log(headlines, everything);
+	}, [headlines, resultsPerPage]);
 	//---------------------------------------------------------------
 
 	//handling functions---------------------------------------------
@@ -49,7 +49,7 @@ const Headlines = () => {
 		console.log(pagination);
 	};
 	// ---------------------------------------------------------------
-	if (everything?.length == 0 || headlines?.length == 0) {
+	if (everything?.length == 0 && headlines?.length == 0) {
 		return <Box>Sorry There are no updates for now :(</Box>;
 	}
 

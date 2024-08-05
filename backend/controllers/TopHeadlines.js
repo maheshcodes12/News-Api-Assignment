@@ -1,7 +1,12 @@
 const axios = require("axios");
 const NewsAPI = require("newsapi");
 const NodeCache = require("node-cache");
-const newsapi = new NewsAPI("2557e2321172465cafcafef6a344ffb7");
+const dotenv = require("dotenv");
+dotenv.config({
+	path: "./.env",
+});
+const API_KEY = process.env.API_KEY;
+const newsapi = new NewsAPI(API_KEY);
 const cache = new NodeCache({ stdTTL: 300 });
 
 const getTopHeadlines = (req, res) => {

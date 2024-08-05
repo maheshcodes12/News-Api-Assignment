@@ -17,7 +17,7 @@ const Headlines = () => {
 
 	//states used for styling/components-------------------------------------------------
 	const [pagination, setPagination] = useState(1);
-	const [resultsPerPage, setResultsPerPage] = useState(10);
+	const [resultsPerPage, setResultsPerPage] = useState(5);
 	let size = 20;
 	//---------------------------------------------------------------
 
@@ -33,8 +33,7 @@ const Headlines = () => {
 
 	useEffect(() => {
 		size = Number(headlines?.length / resultsPerPage) || 20;
-		setPagination(size / resultsPerPage);
-		console.log(headlines, everything);
+		setPagination(size);
 	}, [headlines, resultsPerPage]);
 	//---------------------------------------------------------------
 
@@ -46,7 +45,6 @@ const Headlines = () => {
 	const handlePaginationChange = (event, value) => {
 		event.preventDefault();
 		setPagination(value);
-		console.log(pagination);
 	};
 	// ---------------------------------------------------------------
 	if (everything?.length == 0 && headlines?.length == 0) {
@@ -201,6 +199,7 @@ const Headlines = () => {
 						p={4}>
 						{everything?.map((element, index) => {
 							return (
+								index >= (pagination - 1) * resultsPerPage &&
 								index < pagination * resultsPerPage && (
 									<>
 										<Box

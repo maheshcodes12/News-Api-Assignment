@@ -1,5 +1,4 @@
 import axios from "axios";
-const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
 
 export const getEverythingInNews = async ({
 	q = "",
@@ -9,6 +8,8 @@ export const getEverythingInNews = async ({
 	language = "en",
 	sortBy = "publishedAt",
 }) => {
+	const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
+
 	try {
 		const response = await axios.get(`${BACKEND_URI}/everything`, {
 			params: {
@@ -20,7 +21,7 @@ export const getEverythingInNews = async ({
 				sortBy: sortBy,
 			},
 		});
-		if (response.status != 200) return [];
+
 		return response?.data?.everything?.articles;
 	} catch (e) {
 		console.log(e);
@@ -33,6 +34,8 @@ export const getTopHeadlines = async ({
 	catagory = "",
 	sources = "",
 }) => {
+	const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
+
 	try {
 		const response = await axios.get(`${BACKEND_URI}/topheadlines`, {
 			params: {
@@ -43,7 +46,6 @@ export const getTopHeadlines = async ({
 			},
 		});
 
-		if (response?.response?.status != 200) return [];
 		return response?.data?.headlines?.articles;
 	} catch (e) {
 		console.log(e);

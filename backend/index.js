@@ -11,9 +11,9 @@ dotenv.config({
 
 app.use(
 	cors({
-		origin: ["https://news-api-assignment-3mqm.vercel.app/"],
-		methods: ["POST", "GET"],
-		credentials: true,
+		origin: "*", // Allow all origins
+		methods: ["GET", "POST", "PUT", "DELETE"],
+		allowedHeaders: ["Content-Type", "Authorization"],
 	})
 );
 app.use(express.json());

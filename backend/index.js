@@ -9,7 +9,13 @@ dotenv.config({
 	path: "./.env",
 });
 
-app.use(cors());
+app.use(
+	cors({
+		origin: ["https://news-api-assignment-3mqm.vercel.app/"],
+		methods: ["POST", "GET"],
+		credentials: true,
+	})
+);
 app.use(express.json());
 
 app.get("/", (req, res) => {

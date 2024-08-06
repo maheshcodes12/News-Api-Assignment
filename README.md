@@ -1,16 +1,16 @@
-# News Api 
+# The Fortnightly
 
-Simple implementation of news-api.
+A fast, reliable news feed delivering real-time updates and in-depth analysis on global events.
 
 ## Description
 
-This project is developed as an assignment.
+This is the website developed using NEWS API which gives real-time news from all over the globe.
 
 ## Getting Started
 
 ### Caution
 
-Make sure to update Api key in ./backend/env . Provided key can have it's daily limit exceeded already.
+Make sure to update Api key in ./backend/env and add your own key. You can generate your key for free. Provided key can have it's daily limit exceeded already.
 
 ### Dependencies
 
